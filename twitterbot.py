@@ -13,9 +13,9 @@ access_token_key = os.getenv("access_token_key")
 access_token_secret = os.getenv("access_token_secret")
 
 api = TwitterAPI(consumer_key,
-                 consumer_secret,
-                 access_token_key,
-                 access_token_secret)
+				 consumer_secret,
+				 access_token_key,
+				 access_token_secret)
 
 
 def check_speeds():
@@ -32,19 +32,19 @@ def check_speeds():
 	print("Upload Speed: " + str(upload_speed) + "Mbps")
 
 
-    # # Uncomment code to create triaged messaging
-    # thresholds = {'first':0.8, 'second':0.5}
-    # messages = {'first':'[enter polite message]', 'second': '[enter stern message]'}
-    # if download_speed < advertised_download * thresholds['first'] or upload_speed < advertised_upload * thresholds['first']:
-    #     tweet = messages['first']
-    #     api.request("statuses/update", {"status": tweet})
-    # elif download_speed < advertised_download * thresholds['second'] or upload_speed < advertised_upload * thresholds['second']:
-    #     tweet = messages['second']
-    #     api.request("statuses/update", {"status": tweet})
+	# # Uncomment code to create triaged messaging
+	# thresholds = {'first':0.8, 'second':0.5}
+	# messages = {'first':'[enter polite message]', 'second': '[enter stern message]'}
+	# if download_speed < advertised_download * thresholds['first'] or upload_speed < advertised_upload * thresholds['first']:
+	#     tweet = messages['first']
+	#     api.request("statuses/update", {"status": tweet})
+	# elif download_speed < advertised_download * thresholds['second'] or upload_speed < advertised_upload * thresholds['second']:
+	#     tweet = messages['second']
+	#     api.request("statuses/update", {"status": tweet})
 
-    # If using triaged messaging, above, then comment out the conditional block, below.
-	if download_speed < advertised_download * 0.8 or upload_speed < advertised_upload * 0.8:
-		tweet = "Test tweet " + str(download_speed) + " Mbps, " + str(upload_speed) + " Mbps"
+	# If using triaged messaging, above, then comment out the conditional block, below.
+	if download_speed < advertised_download * 0.7:
+		tweet = "@kolbi_cr su internet es una porqueria. Por que me llegan " + str(download_speed) + " en vez de los 50Mbps que me cobran?"
 		api.request("statuses/update", {"status": tweet})
 		print("Tweet sent: " + tweet)
 		print("\n")
