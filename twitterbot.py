@@ -44,7 +44,7 @@ def check_speeds():
 
 	# If using triaged messaging, above, then comment out the conditional block, below.
 	if download_speed < advertised_download * 0.7:
-		tweet = "@kolbi_cr su internet es una porqueria. Por que me llegan " + str(download_speed) + " en vez de los 50Mbps que me cobran?"
+		tweet = "@kolbi_cr su internet es una mierda! Por que me llegan " + str(download_speed) + " en vez de los 50Mbps que me cobran? Arreglen su servicio"
 		api.request("statuses/update", {"status": tweet})
 		print("Tweet sent: " + tweet)
 		print("\n")
@@ -59,5 +59,5 @@ def periodic_check(scheduler, interval, action, arguments=()):
 	action()
 
 
-periodic_check(scheduler, 60, check_speeds)
+periodic_check(scheduler, 2700, check_speeds)
 scheduler.run()
